@@ -36,9 +36,9 @@ body {
   background-color: #0d0d33;
   border: 5px solid transparent;
   border-radius: 20px;
-  margin-top: 15px;
+  margin-top: 20px;
   border-image-slice: 1; /* Ensure the gradient fills the border */
-  animation: borderanimation 2s ease 4s infinite, upDown 3s ease 2s infinite;
+  animation: borderanimation 2s ease 0s infinite, upDown 3s ease 2s infinite;
   /* animation: upDown 3s ease 2s infinite; */
   display: flex;
   align-items: center;
@@ -67,9 +67,23 @@ body {
 .boxes {
   height: 100%;
   width: 50%;
-  border: 2px solid white;
-  background-color: yellow;
   border-radius: 15px;
+}
+
+#one {
+  background-color: #ff3366;
+}
+
+#two {
+  background-color: #008080;
+}
+
+#three {
+  background-color: cornflowerblue;
+}
+
+#four {
+  background-color: orange;
 }
 
 @keyframes borderanimation {
