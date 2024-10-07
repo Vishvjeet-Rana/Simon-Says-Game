@@ -68,6 +68,8 @@ body {
   height: 100%;
   width: 50%;
   border-radius: 15px;
+  cursor: pointer;
+  border: none;
 }
 
 #one {
