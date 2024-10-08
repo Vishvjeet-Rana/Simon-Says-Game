@@ -16,6 +16,7 @@ document.addEventListener("keypress", () => {
     h4.style.color = "green";
 
     start = true;
+
     setTimeout(() => {
       levelUp();
     }, 500);
@@ -29,6 +30,9 @@ const levelUp = () => {
 
   let randomNum = Math.floor(Math.random() * 4);
   let randomColor = btnArray[randomNum];
+  gameSeq.push = randomColor;
+  console.log(gameSeq);
+
   let btn = document.querySelector(`.${randomColor}`);
 
   // for debugging
@@ -59,6 +63,10 @@ function userFlash(btn) {
 function btnPress() {
   let btn = this;
   userFlash(btn);
+
+  let userColor = btn.getAttribute("id");
+  userSeq.push = userColor;
+  console.log(userSeq);
 }
 
 // flash on click on each (all 4) button
