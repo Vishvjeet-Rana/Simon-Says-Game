@@ -64,7 +64,7 @@ body {
   gap: 10px;
 }
 
-.boxes {
+.buttons {
   height: 100%;
   width: 50%;
   border-radius: 15px;
@@ -72,19 +72,19 @@ body {
   border: none;
 }
 
-#one {
+.red {
   background-color: #ff3366;
 }
 
-#two {
+.teal {
   background-color: #008080;
 }
 
-#three {
+.blue {
   background-color: cornflowerblue;
 }
 
-#four {
+.orange {
   background-color: orange;
 }
 
@@ -141,4 +141,8 @@ body {
   100% {
     transform: translateY(0);
   }
+}
+
+.flash {
+  background-color: white;
 }
