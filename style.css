@@ -146,3 +146,7 @@ body {
 .flash {
   background-color: white;
 }
+
+.userFlash {
+  background-color: #00ff00;
+}

@@ -3,6 +3,7 @@ let level = 0; // it will track our level
 let start = false;
 let gameSeq = [];
 let userSeq = [];
+let allButtons = document.querySelectorAll(".buttons");
 
 // these are class's name in html given to the buttons
 let btnArray = ["red", "teal", "blue", "orange"];
@@ -45,4 +46,22 @@ function gameFlash(btn) {
   setTimeout(() => {
     btn.classList.remove("flash");
   }, 200);
+}
+
+// this triggers when user manually cliks any button
+function userFlash(btn) {
+  btn.classList.add("userFlash");
+  setTimeout(() => {
+    btn.classList.remove("userFlash");
+  }, 150);
+}
+
+function btnPress() {
+  let btn = this;
+  userFlash(btn);
+}
+
+// flash on click on each (all 4) button
+for (let btn of allButtons) {
+  btn.addEventListener("click", btnPress);
 }
