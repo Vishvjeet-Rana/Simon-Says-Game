@@ -25,6 +25,7 @@ document.addEventListener("keypress", () => {
 });
 
 const levelUp = () => {
+  userSeq = [];
   level++;
   h4.innerText = `Level ${level}`;
   h4.style = "none";
@@ -32,7 +33,7 @@ const levelUp = () => {
   let randomNum = Math.floor(Math.random() * 4);
   let randomColor = btnArray[randomNum];
   gameSeq.push(randomColor);
-  console.log(gameSeq);
+  console.log("game seq = ", gameSeq);
 
   let btn = document.querySelector(`.${randomColor}`);
 
@@ -66,12 +67,11 @@ function btnPress() {
   userFlash(btn);
 
   let userColor = btn.getAttribute("id");
-  console.log("user color = ", userColor);
 
   userSeq.push(userColor);
-  console.log(userSeq);
+  console.log("user seq = ", userSeq);
 
-  checkBtn();
+  checkBtn(userSeq.length - 1);
 }
 
 // flash on click on each (all 4) button
@@ -80,21 +80,18 @@ for (let btn of allButtons) {
 }
 
 // checking if user pressing the right button
-function checkBtn() {
+function checkBtn(index) {
   console.log(`current level = ${level}`);
 
-  let index = level - 1;
   if (userSeq[index] === gameSeq[index]) {
-    score++;
-    console.log(`score is = ${score}`);
-    levelUp();
+    if (userSeq.length === gameSeq.length) {
+      setTimeout(() => {
+        levelUp();
+      }, 1000);
+    }
   } else {
-    h4.innerText = "Game Over!! Press any to restart the game.";
+    h4.innerText = "Game Over!! Press any key to restart the game.";
     h4.style.color = "red";
     h4.style.fontSize = "1.5rem";
-
-    let scoreShow = document.createElement("h3");
-    scoreShow = score;
-    h4.insertAdjacentHTML("afterend", `Your Score is : ${scoreShow}`);
   }
 }
