@@ -90,8 +90,22 @@ function checkBtn(index) {
       }, 1000);
     }
   } else {
-    h4.innerText = "Game Over!! Press any key to restart the game.";
-    h4.style.color = "red";
+    h4.innerHTML = `Game Over! Your Score was <b>${level}.<br>Press any key to restart the game.`;
+    h4.style.color = "white";
     h4.style.fontSize = "1.5rem";
+
+    document.querySelector("body").style.backgroundColor = "red";
+    setTimeout(() => {
+      document.querySelector("body").style.backgroundColor = "#0a0a1a";
+    }, 500);
+
+    resetGame();
   }
+}
+
+function resetGame() {
+  start = false;
+  userSeq = [];
+  gameSeq = [];
+  level = 0;
 }
