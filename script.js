@@ -4,6 +4,7 @@ let start = false;
 let gameSeq = [];
 let userSeq = [];
 let allButtons = document.querySelectorAll(".buttons");
+let score = 0;
 
 // these are class's name in html given to the buttons
 let btnArray = ["red", "teal", "blue", "orange"];
@@ -30,7 +31,7 @@ const levelUp = () => {
 
   let randomNum = Math.floor(Math.random() * 4);
   let randomColor = btnArray[randomNum];
-  gameSeq.push = randomColor;
+  gameSeq.push(randomColor);
   console.log(gameSeq);
 
   let btn = document.querySelector(`.${randomColor}`);
@@ -65,11 +66,35 @@ function btnPress() {
   userFlash(btn);
 
   let userColor = btn.getAttribute("id");
-  userSeq.push = userColor;
+  console.log("user color = ", userColor);
+
+  userSeq.push(userColor);
   console.log(userSeq);
+
+  checkBtn();
 }
 
 // flash on click on each (all 4) button
 for (let btn of allButtons) {
   btn.addEventListener("click", btnPress);
+}
+
+// checking if user pressing the right button
+function checkBtn() {
+  console.log(`current level = ${level}`);
+
+  let index = level - 1;
+  if (userSeq[index] === gameSeq[index]) {
+    score++;
+    console.log(`score is = ${score}`);
+    levelUp();
+  } else {
+    h4.innerText = "Game Over!! Press any to restart the game.";
+    h4.style.color = "red";
+    h4.style.fontSize = "1.5rem";
+
+    let scoreShow = document.createElement("h3");
+    scoreShow = score;
+    h4.insertAdjacentHTML("afterend", `Your Score is : ${scoreShow}`);
+  }
 }
