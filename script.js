@@ -92,7 +92,7 @@ function checkBtn(index) {
   } else {
     h4.innerHTML = `Game Over! Your Score was <b>${level}.<br>Press any key to restart the game.`;
     h4.style.color = "white";
-    h4.style.fontSize = "1.5rem";
+    h4.style.fontSize = "1rem";
 
     document.querySelector("body").style.backgroundColor = "red";
     setTimeout(() => {
@@ -104,8 +104,33 @@ function checkBtn(index) {
 }
 
 function resetGame() {
+  disableButtons();
   start = false;
   userSeq = [];
   gameSeq = [];
   level = 0;
+}
+
+function disableButtons() {
+  for (let btn of allButtons) {
+    btn.addEventListener("click", function () {
+      showPopup("Please press any key to restart the game.");
+      return;
+    });
+  }
+}
+
+function showPopup(message) {
+  let popup = document.querySelector(".popup");
+  popup.classList.add("popup");
+  popup.textContent = message;
+  popup.style.display = "block";
+  popup.style.opacity = "1";
+
+  setTimeout(() => {
+    popup.style.opacity = "0";
+    setTimeout(() => {
+      popup.style.display = "none";
+    }, 500);
+  }, 1000);
 }

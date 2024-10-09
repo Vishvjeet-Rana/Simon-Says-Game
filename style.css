@@ -150,3 +150,21 @@ body {
 .userFlash {
   background-color: #00ff00;
 }
+
+.popup {
+  display: none; /* Hidden by default */
+  position: fixed;
+  height: 50px;
+  width: 300px;
+  top: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #00ff00;
+  color: black;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 20px;
+  border-radius: 5px;
+  z-index: 1000; /* Make sure it’s on top */
+  transition: opacity 0.5s ease;
+}
